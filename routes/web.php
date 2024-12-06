@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('reports', ReportController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('items', ItemController::class);
 });
 
 

@@ -52,6 +52,13 @@
                         <x-dropdown-link :href="route('reports.index')">
                             {{ __('Reports') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('categories.index')">
+                            {{ __('Categories') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('items.index')">
+                            {{ __('Items') }}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>
