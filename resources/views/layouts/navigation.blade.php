@@ -52,9 +52,43 @@
                         <x-dropdown-link :href="route('reports.index')">
                             {{ __('Reports') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('categories.index')">
-                            {{ __('Categories') }}
+
+
+
+                        <x-dropdown-link :href="route('expense_categories.index')">
+                            {{ __('Expense Categories') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('expense_types.index')">
+                            {{ __('Expense Types') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('expense_details.index')">
+                            {{ __('Expense Details') }}
+                        </x-dropdown-link>
+
+
+                        <x-dropdown-link :href="route('merch_categories.index')">
+                            {{ __('Merch Categories') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('merch_types.index')">
+                            {{ __('Merch Types') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('merch_details.index')">
+                            {{ __('Merch Details') }}
+                        </x-dropdown-link>
+
+
+
+                        <x-dropdown-link :href="route('printing_categories.index')">
+                            {{ __('Printing Categories') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('printing_types.index')">
+                            {{ __('Printing Types') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('printing_details.index')">
+                            {{ __('Printing Details') }}
+                        </x-dropdown-link>
+
+
 
                         <x-dropdown-link :href="route('items.index')">
                             {{ __('Items') }}

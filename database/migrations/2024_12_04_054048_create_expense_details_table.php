@@ -10,14 +10,15 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('expense_details', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('expense_type_id');
-            $table->integer('price');
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('expense_details', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('expense_type_id')->constrained('expense_types')->onDelete('cascade'); // Ensures a valid foreign key
+        $table->integer('price');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.

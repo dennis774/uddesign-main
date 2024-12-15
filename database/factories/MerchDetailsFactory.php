@@ -2,30 +2,42 @@
 
 namespace Database\Factories;
 
-use App\Models\MerchType;
 use App\Models\MerchDetails;
+use App\Models\MerchType;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MerchDetails>
- */
 class MerchDetailsFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     protected $model = MerchDetails::class;
 
-    public function definition(): array
+    public function definition()
     {
         return [
-            'merch_type_id' => MerchType::all()->random()->id,
-            'pcs' => $this->faker->numberBetween(1, 100),
-            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'updated_at' => now(),
+            'merch_type_id' => MerchType::factory(),
+            'pcs' => $this->faker->numberBetween(1, 500),
+            'created_at' => $this->faker->dateTimeBetween('2022-01-01', '2024-12-31'),
+            'updated_at' => $this->faker->dateTimeBetween('2022-01-01', '2024-12-31'),
         ];
+    }
+
+    public function forEveryDay()
+    {
+        $data = [];
+        $startDate = Carbon::parse('2022-01-01');
+        $endDate = Carbon::parse('2024-12-31');
+
+        while ($startDate->lte($endDate)) {
+            $data[] = [
+                'merch_type_id' => MerchType::factory(),
+                'pcs' => $this->faker->numberBetween(1, 500),
+                'created_at' => $this->faker->dateTimeBetween('2022-01-01', '2024-12-31'),
+                'updated_at' => $this->faker->dateTimeBetween('2022-01-01', '2024-12-31'),
+            ];
+            $startDate->addDay();
+        }
+
+        return $data;
     }
 }
 

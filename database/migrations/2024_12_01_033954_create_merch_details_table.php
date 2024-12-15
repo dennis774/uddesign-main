@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('merch_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('merch_type_id');
+            $table->foreignId('merch_type_id')->constrained('merch_types')->onDelete('cascade'); // Ensures a valid foreign key
             $table->integer('pcs');
             $table->timestamps();
         });

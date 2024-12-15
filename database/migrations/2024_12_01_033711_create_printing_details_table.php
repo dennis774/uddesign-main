@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('printing_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('printing_type_id');
+            $table->foreignId('printing_type_id')->constrained('printing_types')->onDelete('cascade'); // Ensures a valid foreign key
             $table->integer('quantity');
             $table->timestamps();
         });

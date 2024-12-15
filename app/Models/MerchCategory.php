@@ -9,4 +9,10 @@ class MerchCategory extends Model
 {
     use HasFactory;
     protected $guarded =[];
+
+
+    public function types()
+    {
+        return $this->hasMany(MerchType::class);
+    }
 }
